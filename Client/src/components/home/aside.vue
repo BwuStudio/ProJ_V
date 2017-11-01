@@ -114,4 +114,8 @@
 	.aside .el-tree-node__content:hover  .el-tree-node__label{
 		color: #ffffff!important;
 	}
+
+	.aside .el-tree-node__expand-icon.el-icon-caret-right::before{
+		display: none;
+	}
 </style>

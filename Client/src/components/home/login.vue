@@ -1,28 +1,12 @@
 <template>
 	<div class="mask">
-		<form class="panel md-h6 ctnr">
-			<div class="row">
-				<h1 class="col-1_1">用户登陆</h1>
-			</div>
-			<div class="row">
-				<div class="col-4_4">
-					<el-input value='admin' type='password' icon="">
-						<el-button slot="prepend" icon="vue-person"></el-button>
-					</el-input>
-				</div>
-			</div>
-			<div class="row">
-				<div class="col-4_4">
-					<el-input value='password' type='password' icon="">
-						<el-button slot="prepend" icon="vue-vpnkey"></el-button>
-					</el-input>
-				</div>
-			</div>
-			<div class="row">
-				<div class="col-8_8">
-					<el-button v-on:click="checkValue" type="primary" style="width:100%">登录</el-button>
-				</div>
-			</div>
+		<form class="panel">
+			<el-input type='text' placeholder="用户名">
+			</el-input>
+			<el-input type='password' placeholder="密码">
+			</el-input>
+
+			<el-button v-on:click="checkValue" type="primary" class="btn">登录</el-button>
 
 		</form>
 	</div>
@@ -96,22 +80,49 @@
 		bottom: 0;
 		left: 0;
 		right: 0;
-		background-color: #ffffff;
+		background-color: #FDFDFD;
 		z-index: 999;
 	}
 
+
+	.btn{
+		position: absolute;
+		width: 100%;
+		height: 48px;
+		bottom: -72px;left:0;right: 0;
+
+		box-shadow: 0 18px 48px 0 #ccc, 0 8px 12px 0 #ddd;
+	}
 	.panel {
 		position: absolute;
 		left: 50%;
 		top: 45%;
-		width: 300px;
+		width: 240px;
 		transform: translate(-50%, -45%);
 		z-index: 999;
 		background-color: #ffffff;
+		border-radius: 6px;
+		box-shadow: 0 18px 48px 0 #ccc, 0 8px 12px 0 #ddd;
+		border: solid 1px #fefefe;
 	}
 
-	.panel h1{
+	.panel h1 {
 		text-align: center;
 		font-size: 24px;
+	}
+</style>
+
+<style>
+	.mask input {
+		border: none!important;
+		border-radius: 0;
+		height: 56px;
+		background-color: transparent!important;
+		padding-left:18px;
+		padding-right:18px; 
+	}
+
+	.mask div:first-child>input {
+		border-bottom: solid 1px #ccc!important;
 	}
 </style>

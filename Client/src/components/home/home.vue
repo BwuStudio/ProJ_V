@@ -4,7 +4,7 @@
 
 		<bwu-header></bwu-header>
 
-		<bwu-pageContainer></bwu-pageContainer>
+		<bwu-pageContainer style="z-index:2"></bwu-pageContainer>
 
 		<transition name="fade">
 			<bwu-login v-if='showLogin' @login='$login'></bwu-login>
@@ -132,7 +132,7 @@
 	}
 
 	#app[data-sideOpen=true] {
-		padding-left: 260px;
+		padding-left: 240px;
 	}
 
 

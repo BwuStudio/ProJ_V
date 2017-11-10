@@ -5,7 +5,6 @@
 			</el-input>
 			<el-input type='password' placeholder="密码">
 			</el-input>
-
 			<el-button v-on:click="checkValue" type="primary" class="btn">登录</el-button>
 
 		</form>

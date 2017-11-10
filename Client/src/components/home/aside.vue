@@ -1,11 +1,7 @@
 <template>
-	<div class="aside md-h2">
-
+	<div class="aside">
+		<div style="height:72px"></div>
 		<el-tree :data="list" :props="defaultProps" accordion @node-click="$nodeClick"></el-tree>
-
-		<div class="aside-information">
-			<div class="aside-information-card md-h3">stable (v5.0.0-beta.4)</div>
-		</div>
 	</div>
 </template>
 
@@ -42,7 +38,7 @@
 		height: 100%;
 		position: absolute;
 		left: 0;top: 0;
-		background-color: #ffffff;
+		background-color: rgb(248,248,248);
 		overflow: auto;
 		/* padding-left: 12px; */
 	}
@@ -50,14 +46,6 @@
 	.aside-information{
 		border-top: solid 1px rgb(219, 219, 219);
 		padding: 12px
-	}
-
-	.aside-information-card{
-		height: 48px;line-height: 48px;
-		text-align: center;	
-		cursor: default	;
-		background-color: #FC624D;
-		color: #ffffff;
 	}
 
 </style>
@@ -71,29 +59,29 @@
 
 
 	.aside .el-tree>.el-tree-node>.el-tree-node__content {
-		height: 48px!important;line-height: 48px!important;
-		background-color: #ffffff;
+		height: 36px!important;line-height: 36px!important;
+		background-color: rgb(248,248,248);
 	}
 
 	.aside .el-tree>.el-tree-node>.el-tree-node__content:hover {
 		background-color: #3f4749;
-		color: #ffffff
+		color: rgb(248,248,248)
 	}
 
 	
 	.aside .el-tree>.el-tree-node>.el-tree-node__content .el-tree-node__label{
-		font-size: 16px!important;
+		font-size: 14px!important;
 		color: #4B4B4B;
 	} 
 
 	.aside .el-tree>.el-tree-node>.el-tree-node__content .el-tree-node__expand-icon{
-		font-size: 16px!important;
+		font-size: 14px!important;
 		float: right; 
-		margin-top: 18px;margin-right: 18px;
+		margin-top: 12px;margin-right: 18px;
 	} 
 
 	.aside  .el-tree-node__expand-icon{
-		font-size: 16px!important;
+		font-size: 14px!important;
 		float: right; 
 		margin-top: 12px;margin-right: 18px;
 	}
@@ -104,7 +92,7 @@
 	} 
 
 	.aside .el-tree-node__content {
-		background-color: #F5F5F5;
+		background-color: #fff;
 	}
 
 	.aside .el-tree-node__content:hover{
@@ -112,7 +100,7 @@
 	}
 
 	.aside .el-tree-node__content:hover  .el-tree-node__label{
-		color: #ffffff!important;
+		color: rgb(248,248,248)!important;
 	}
 
 	.aside .el-tree-node__expand-icon.el-icon-caret-right::before{

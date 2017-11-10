@@ -1,25 +1,6 @@
 <template>
-	<div class="header md-h2">
+	<div class="header">
 
-		<div class="logo"></div>
-
-		<nav class="nav"></nav>
-		
-		<div class="user">
-			<el-dropdown trigger="click" :hide-on-click="true">
-				<span class="el-dropdown-link">
-					<div class="user-face"><i class="icon iconfont el-icon-vue-accountcircle"></i></div>
-					<div class="user-name">Bwuning</div>
-					<div class="user-dropdown"><i class="el-icon-caret-bottom el-icon--right"></i></div>
-				</span>
-				<el-dropdown-menu slot="dropdown">
-					<el-dropdown-item>站内消息</el-dropdown-item>
-					<el-dropdown-item>系统通知</el-dropdown-item>
-					<el-dropdown-item disabled>历史记录</el-dropdown-item>
-					<el-dropdown-item divided>个人信息</el-dropdown-item>
-				</el-dropdown-menu>
-			</el-dropdown>
-		</div>
 	</div>
 </template>
 
@@ -37,12 +18,12 @@
 
 <style scoped>
 	.header {
-		height: 64px;
+		height: 144px;
 		position: absolute;
 		left: 0;
 		right: 0;
 		top: 0;
-		background-color: #ffffff;
+		background-color: aqua;
 	}
 
 	.logo {

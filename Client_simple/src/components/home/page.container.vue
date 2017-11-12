@@ -1,13 +1,14 @@
 <template>
 	<div class="page_container">
 		<h2 class="page-title md-h4">Title</h2>
-		<router-view></router-view>
+		<router-view name='src'></router-view>
 	</div>
 </template>
 
 <script>
 	export default {
 		name: 'bwu-pageContainer',
+		props:['src'],
 		data() {
 			return {
 				msg: 'Welcome to Your Vue.js App'

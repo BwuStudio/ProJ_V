@@ -10,8 +10,11 @@ export default new Router({
   routes: [
     {
       path: '/',
-      name: 'Hello',
-      component: Page_1
+      component:
+       {
+          'page1':Page_1,
+          'hel_lo':Hello,
+        }
     },
     {
       path: '/hello',

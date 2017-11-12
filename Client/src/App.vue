@@ -1,14 +1,14 @@
 <template>
-	<bwu-home></bwu-home>
+	<bwu-main></bwu-main>
 </template>
 
 <script>
-	import Home from './components/home/home.vue'
+	import Main from './components/main/main.vue'
 
 	export default {
 		name: 'app',
 		components: {
-			'bwu-home': Home,
+			'bwu-main': Main,
 		}
 	}
 

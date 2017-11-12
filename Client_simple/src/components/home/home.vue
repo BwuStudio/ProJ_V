@@ -4,7 +4,7 @@
 
 		<bwu-header></bwu-header>
 
-		<bwu-pageContainer></bwu-pageContainer>
+		<!-- <bwu-pageContainer></bwu-pageContainer> -->
 
 		<transition name="fade">
 			<bwu-login v-if='showLogin' @login='$login'></bwu-login>

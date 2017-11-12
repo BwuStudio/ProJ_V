@@ -10,8 +10,10 @@ export default new Router({
   routes: [
     {
       path: '/',
-      name: 'Hello',
-      component: Page_1
+      components: {
+          'page_1':Page_1,
+          'hell_o':Hello
+      }
     },
     {
       path: '/hello',
@@ -28,3 +30,6 @@ export default new Router({
     
   ]
 })
+
+
+console.log(123)

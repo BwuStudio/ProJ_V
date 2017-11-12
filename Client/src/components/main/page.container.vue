@@ -1,16 +1,19 @@
 <template>
 	<div class="page_container">
 		<el-tabs class="page-tabs md-h6" v-model="editableTabsValue" type="card" editable @edit="handleTabsEdit">
-			<el-tab-pane :key="item.name" v-for="(item, index) in editableTabs" :label="item.title" :name="item.name">
-				{{item.content}}
+			<el-tab-pane style="height:100%" :key="item.name" v-for="(item, index) in editableTabs" :label="item.title" :name="item.name">
+				<router-view  name='page-1'></router-view>
 			</el-tab-pane>
 		</el-tabs>
 	</div>
 </template>
 
 <script>
+
 	export default {
 		name: "bwu-pageContainer",
+		components:{
+		},
 		data() {
 			return {
 				editableTabsValue: "2",
@@ -18,12 +21,14 @@
 					{
 						title: "Tab 1",
 						name: "1",
-						content: "Tab 1 content"
+						content: "Tab 1 content",
+						src: "page_1"
 					},
 					{
 						title: "Tab 2",
 						name: "2",
-						content: "Tab 2 content"
+						content: "Tab 2 content",
+						src: "hell_o"
 					}
 				],
 				tabIndex: 2
@@ -103,6 +108,15 @@
 		line-height:37px;
 	}
 	.el-tabs__new-tab{
-		margin:9px;
+		margin:9px;z-index: 1;position: relative
+	}
+	.el-tabs__header{
+		margin: 0;
+	}
+	.el-tabs__nav-scroll{
+		z-index: 1;position: relative
+	}
+	.el-tabs__content{
+		height: 100%;top:-36px;padding-top: 36px;
 	}
 </style>

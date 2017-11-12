@@ -1,11 +1,9 @@
 <template>
 	<div class="mask">
 		<form class="panel">
-			<el-input type='text' placeholder="用户名">
-			</el-input>
-			<el-input type='password' placeholder="密码">
-			</el-input>
-			<el-button v-on:click="checkValue" type="primary" class="btn">登录</el-button>
+			<input type='text' placeholder="用户名"></input>
+			<input type='password' placeholder="密码"></input>
+			<button v-on:click="checkValue" type="primary" class="btn">登录</button>
 
 		</form>
 	</div>
@@ -54,8 +52,6 @@
 		Ajax({ type: "GET", url: "http://127.0.0.1:8081/api/user" })
 			.then(
 			(success) => {
-				console.log(success)
-				console.log(_this)
 				_this.$emit('login')
 			}).catch(
 			(error) => {
@@ -89,7 +85,10 @@
 		width: 100%;
 		height: 48px;
 		bottom: -72px;left:0;right: 0;
-
+		border:none;
+		background: aqua;
+		color:#fff;
+		border-radius: 4px;
 		box-shadow: 0 18px 48px 0 #ccc, 0 8px 12px 0 #ddd;
 	}
 	.panel {

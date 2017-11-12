@@ -1,0 +1,15 @@
+import Hello from '@/components/pages/Hello'
+import Page_1 from '@/components/pages/Page_1'
+import Page_2 from '@/components/pages/Page_2'
+
+import test from './test/mod'
+
+export default {
+    mod: 'home',
+    children: [
+        { name: 'Page_1', component: Page_1 },
+        { name: 'page_2', component: Page_2 },
+        { name: 'hello', component: Hello },
+        { mode: test }
+    ]
+}

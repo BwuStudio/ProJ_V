@@ -2,9 +2,14 @@
 	<div class="page_container">
 		<el-tabs class="page-tabs md-h6" v-model="editableTabsValue" type="card" editable @edit="handleTabsEdit">
 			<el-tab-pane style="height:100%" :key="item.name" v-for="(item, index) in editableTabs" :label="item.title" :name="item.name">
-				<router-view  name='page-1'></router-view>
+				<router-view name='page-1'></router-view>
 			</el-tab-pane>
 		</el-tabs>
+		
+		<transition name="fade">
+			<bwu-modal :title='"临时"'></bwu-modal>
+		</transition>
+
 	</div>
 </template>
 
@@ -12,7 +17,7 @@
 
 	export default {
 		name: "bwu-pageContainer",
-		components:{
+		components: {
 		},
 		data() {
 			return {
@@ -84,39 +89,54 @@
 </style>
 
 <style>
-	.el-tabs__nav-scroll{
-		height: 36px;line-height: 36px;
+	.el-tabs__nav-scroll {
+		height: 36px;
+		line-height: 36px;
 	}
 
-	.el-tabs__item{
-		height: 36px;line-height: 34px;
+	.el-tabs__item {
+		height: 36px;
+		line-height: 34px;
 	}
 
-	.el-tabs--card > .el-tabs__header .el-tabs__item.is-active{
+	.el-tabs--card>.el-tabs__header .el-tabs__item.is-active {
 		border-radius: 0;
 	}
-	.el-tabs--card > .el-tabs__header .el-tabs__item.is-active{
-		border-top-color:transparent;
+
+	.el-tabs--card>.el-tabs__header .el-tabs__item.is-active {
+		border-top-color: transparent;
 	}
-	.el-tabs--card > .el-tabs__header .el-tabs__item.is-active:first-child{
-		border-left-color:transparent;
+
+	.el-tabs--card>.el-tabs__header .el-tabs__item.is-active:first-child {
+		border-left-color: transparent;
 	}
-	.el-tabs__nav-next{
-		line-height:37px;
+
+	.el-tabs__nav-next {
+		line-height: 37px;
 	}
-	.el-tabs__nav-prev{
-		line-height:37px;
+
+	.el-tabs__nav-prev {
+		line-height: 37px;
 	}
-	.el-tabs__new-tab{
-		margin:9px;z-index: 1;position: relative
+
+	.el-tabs__new-tab {
+		margin: 9px;
+		z-index: 1;
+		position: relative
 	}
-	.el-tabs__header{
+
+	.el-tabs__header {
 		margin: 0;
 	}
-	.el-tabs__nav-scroll{
-		z-index: 1;position: relative
+
+	.el-tabs__nav-scroll {
+		z-index: 1;
+		position: relative
 	}
-	.el-tabs__content{
-		height: 100%;top:-36px;padding-top: 36px;
+
+	.el-tabs__content {
+		height: 100%;
+		top: -36px;
+		padding-top: 36px;
 	}
 </style>

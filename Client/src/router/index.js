@@ -4,32 +4,28 @@ import Hello from '@/components/pages/Hello'
 import Page_1 from '@/components/pages/Page_1'
 import Page_2 from '@/components/pages/Page_2'
 
+import RouterName from './RouterName'
+import RouterLabel from './RouterLabel'
+
 Vue.use(Router)
+
+// console.log(RouterName)
+
+// console.log(RouterLabel)
+
+let name_component = {}
+
+RouterName.forEach((value)=>{
+    name_component[value.name] = value.component
+})
+
+console.log(name_component)
 
 export default new Router({
   routes: [
     {
       path: '/',
-      components: {
-          'page_1':Page_1,
-          'hell_o':Hello
-      }
-    },
-    {
-      path: '/hello',
-      component: Hello
-    },
-    {
-      path: '/page_1',
-      component: Page_1
-    },
-    {
-      path: '/page_2',
-      component: Page_2
+      components: name_component
     }
-    
   ]
 })
-
-
-console.log(123)

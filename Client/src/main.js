@@ -6,7 +6,7 @@ import App from './App'
 import router from './router'
 import store from './store/store'
 import Element from 'element-ui'
-
+import Globel_Comp from '@/components/common/globel/globel'
 
 import '../src/less/theme/element/theme/index.css'
 import './less/index.less'
@@ -15,6 +15,8 @@ Vue.config.productionTip = false
 
 
 Vue.use(Element)
+
+Vue.use(Globel_Comp)
 
 /* eslint-disable no-new */
 new Vue({

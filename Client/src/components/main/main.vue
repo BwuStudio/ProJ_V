@@ -36,7 +36,7 @@
 		data() {
 			return {
 				showLogin: true,
-				showLoading: false&&this.$store.state.isLoading,
+				showLoading: false && this.$store.state.isLoading,
 				listData: [{
 					label: 'Hello',
 					children: [{
@@ -134,6 +134,4 @@
 	#app[data-sideOpen=true] {
 		padding-left: 240px;
 	}
-
-
 </style>

@@ -5,15 +5,19 @@
 				<router-view name='page-1'></router-view>
 			</el-tab-pane>
 		</el-tabs>
-		
+
 		<transition name="fade">
-			<bwu-modal :title='"临时"'></bwu-modal>
+			<bwu-modal v-if='showPanel' :isShow.sync='showPanel' :title='"临时"'>
+				<el-tree slot='body' :data="allPages" :props="defaultProps" @node-click="handleNodeClick">
+				</el-tree>
+			</bwu-modal>
 		</transition>
 
 	</div>
 </template>
 
 <script>
+	import Pages from '@/router/RouterLabel'
 
 	export default {
 		name: "bwu-pageContainer",
@@ -36,19 +40,28 @@
 						src: "hell_o"
 					}
 				],
-				tabIndex: 2
+				tabIndex: 2,
+				showPanel: true,
+				allPages: Pages,
+				defaultProps: {
+					children: 'children',
+					label: 'label'
+				}
 			};
 		},
 		methods: {
 			handleTabsEdit(targetName, action) {
+				console.log(this)
+
 				if (action === "add") {
-					let newTabName = ++this.tabIndex + "";
-					this.editableTabs.push({
-						title: "New Tab",
-						name: newTabName,
-						content: "New Tab content"
-					});
-					this.editableTabsValue = newTabName;
+					// let newTabName = ++this.tabIndex + "";
+					// this.editableTabs.push({
+					// 	title: "New Tab",
+					// 	name: newTabName,
+					// 	content: "New Tab content"
+					// });
+					// this.editableTabsValue = newTabName;
+					this.showPanel = true
 				}
 				if (action === "remove") {
 					let tabs = this.editableTabs;
@@ -67,6 +80,9 @@
 					this.editableTabsValue = activeName;
 					this.editableTabs = tabs.filter(tab => tab.name !== targetName);
 				}
+			},
+			handleNodeClick(data) {
+				console.log(data);
 			}
 		}
 	};

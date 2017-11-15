@@ -8,7 +8,7 @@ import store from './store/store'
 import Element from 'element-ui'
 import Globel_Comp from '@/components/common/globel/globel'
 
-import '../src/less/theme/element/theme/index.css'
+import '../src/less/element/theme/index.css'
 import './less/index.less'
 
 Vue.config.productionTip = false

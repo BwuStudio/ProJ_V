@@ -8,7 +8,7 @@ export default {
     name: 'home',
     children: [
         { name: 'Page_1', component: Page_1 },
-        { name: 'page_2', component: Page_2 },
+        { name: 'Page_2', component: Page_2 },
         { name: 'hello', component: Hello },
         { mod: test }
     ]

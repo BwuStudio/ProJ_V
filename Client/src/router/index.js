@@ -15,17 +15,18 @@ Vue.use(Router)
 
 let name_component = {}
 
-RouterName.forEach((value)=>{
+RouterName.forEach(value => {
     name_component[value.name] = value.component
 })
 
 console.log(name_component)
 
+
 export default new Router({
-  routes: [
-    {
-      path: '/',
-      components: name_component
-    }
-  ]
+    routes: [
+        {
+            path: '/',
+            components: name_component
+        }
+    ]
 })

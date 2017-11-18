@@ -2,7 +2,7 @@
 	<div class="page_container">
 		<el-tabs class="page-tabs md-h6" v-model="editableTabsValue" type="card" editable @edit="handleTabsEdit">
 			<el-tab-pane style="height:100%" :key="item.name" v-for="(item, index) in editableTabs" :label="item.title" :name="item.name">
-				<router-view name='page-1'></router-view>
+				<router-view :name='item.src'></router-view>
 			</el-tab-pane>
 		</el-tabs>
 
@@ -25,24 +25,20 @@
 		},
 		data() {
 			return {
-				editableTabsValue: "2",
-				editableTabs: [
-					{
-						title: "Tab 1",
-						name: "1",
-						content: "Tab 1 content",
-						src: "page_1"
-					},
-					{
-						title: "Tab 2",
-						name: "2",
-						content: "Tab 2 content",
-						src: "hell_o"
-					}
-				],
-				tabIndex: 2,
+				editableTabsValue: "root-home-Page_2",
+				editableTabs: this.$store.state.allPages,
+				// editableTabs: [{
+				// 	title: 'Tab 1',
+				// 	name: '1',
+				// 	content: 'Tab 1 content'
+				// }, {
+				// 	title: 'Tab 2',
+				// 	name: '2',
+				// 	content: 'Tab 2 content'
+				// }],
+				tabIndex: 3,
 				showPanel: true,
-				allPages: Pages,
+				allPages: [Pages],
 				defaultProps: {
 					children: 'children',
 					label: 'label'
@@ -51,7 +47,7 @@
 		},
 		methods: {
 			handleTabsEdit(targetName, action) {
-				console.log(this)
+				console.log(targetName)
 
 				if (action === "add") {
 					// let newTabName = ++this.tabIndex + "";
@@ -66,9 +62,12 @@
 				if (action === "remove") {
 					let tabs = this.editableTabs;
 					let activeName = this.editableTabsValue;
+					let closeIndex
+
 					if (activeName === targetName) {
 						tabs.forEach((tab, index) => {
 							if (tab.name === targetName) {
+								closeIndex = index
 								let nextTab = tabs[index + 1] || tabs[index - 1];
 								if (nextTab) {
 									activeName = nextTab.name;
@@ -76,6 +75,8 @@
 							}
 						});
 					}
+
+					this.$store.commit('removePage',closeIndex)
 
 					this.editableTabsValue = activeName;
 					this.editableTabs = tabs.filter(tab => tab.name !== targetName);

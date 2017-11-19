@@ -1,6 +1,6 @@
 <template>
 	<div class="aside">
-		<div style="height:72px"></div>
+		<div style="height:96px"></div>
 		<el-tree :data="list" :props="defaultProps" accordion @node-click="$nodeClick"></el-tree>
 	</div>
 </template>

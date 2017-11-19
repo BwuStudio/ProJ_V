@@ -9,18 +9,11 @@ import RouterLabel from './RouterLabel'
 
 Vue.use(Router)
 
-// console.log(RouterName)
-
-// console.log(RouterLabel)
-
 let name_component = {}
 
 RouterName.forEach(value => {
     name_component[value.name] = value.component
 })
-
-console.log(name_component)
-
 
 export default new Router({
     routes: [

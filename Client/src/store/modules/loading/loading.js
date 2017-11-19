@@ -1,11 +1,7 @@
-import getters from './getter'
-import mutations  from './mutation'
-import actions from './actions'
+import mutations  from './mutations'
 
 export default {
     mutations,
-    actions,
-    getters,
     state: {
         isLoading:false
     },

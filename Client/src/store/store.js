@@ -1,86 +1,24 @@
 import Vue from 'vue'
 import Vuex from 'vuex'
 
-import Loid from '@/utils/common/Loid'
+import PageTabs_Type from './modules/pageTab/mutation.type'
+import PageTabs from './modules/pageTab/pageTabs'
 
+import Loading_Type from './modules/loading/mutation.type'
+import Loading from './modules/loading/loading'
+
+import User_Type from './modules/user/mutation.type'
+import User from './modules/user/user'
+
+console.log(Loading_Type.mod)
 
 Vue.use(Vuex)
 
 export default new Vuex.Store({
     strict: process.env.NODE_ENV !== 'production',
-    state: {
-        isLoading: true,
-        pageTabs:{
-            activePageName:'root-home-hello',
-            pages:[{
-                title: 'hello',
-                src: 'root-home-hello',
-                name: 'root-home-hello'
-            },
-            {
-                title: 'Page_1',
-                src: 'root-home-Page_1',
-                name: 'root-home-Page_1'
-            },
-            {
-                title: 'Page_2',
-                src: 'root-home-Page_2',
-                name: 'root-home-Page_2'
-            }]
-        },
-        
-        allPages: [
-            {
-                title: 'hello',
-                src: 'root-home-hello',
-                name: 'root-home-hello'
-            },
-            {
-                title: 'Page_1',
-                src: 'root-home-Page_1',
-                name: 'root-home-Page_1'
-            },
-            {
-                title: 'Page_2',
-                src: 'root-home-Page_2',
-                name: 'root-home-Page_2'
-            }
-        ]
-    },
-    mutations: {
-        unLoading(state) {
-            state.isLoading = false
-        },
-
-        doLoading(state) {
-            state.isLoading = true
-        },
-        addPage(state, { title, src, props, index }) {
-            let name = Loid('page')
-
-            if (index) {
-                state.pageTabs.pages.splice(index, 0, {
-                    title,
-                    src,
-                    props,
-                    name: name
-                })
-            } else {
-                state.pageTabs.pages.push({
-                    title,
-                    src,
-                    props,
-                    name: name
-                })
-            }
-
-            state.pageTabs.activePageName = name
-        },
-        removePage(state, index) {
-            state.pageTabs.pages.splice(index, 1)
-        },
-        setPage(state,name){
-            state.pageTabs.activePageName = name
-        }
+    modules:{
+        [PageTabs_Type.mod]:PageTabs,
+        [Loading_Type.mod]:Loading,
+        [User_Type.mod]:User,
     }
 })

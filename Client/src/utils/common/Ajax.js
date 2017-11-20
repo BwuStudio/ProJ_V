@@ -62,4 +62,5 @@ function convertData(data) {
     }
 }
 
+
 export default Ajax

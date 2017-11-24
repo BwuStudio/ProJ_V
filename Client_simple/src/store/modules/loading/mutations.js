@@ -1,4 +1,6 @@
-import { UN_LOADING, DO_LOADING } from '../../mutation.type'
+import Type from './mutation.type'
+
+const { UN_LOADING, DO_LOADING } = Type
 
 export default {
     [UN_LOADING](state) {

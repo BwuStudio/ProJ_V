@@ -6,7 +6,9 @@ module.exports = {
     output: {
         path: path.resolve(__dirname, './dist'),
         publicPath: '/dist/',
-        filename: 'build.js'
+        filename: 'build.js',
+        //异步加载的模块是要以文件形式加载，生成的文件名是以chunkFilename配置的
+        chunkFilename: 'chunk[id].js?[chunkhash]',
     },
     module: {
         rules: [
@@ -56,7 +58,8 @@ module.exports = {
     },
     resolve: {
         alias: {
-            'vue$': 'vue/dist/vue.esm.js'
+            'vue$': 'vue/dist/vue.esm.js',
+            '@': path.resolve(__dirname, './src')
         },
         extensions: ['.js', '.json', '.vue', '.scss', '.css']
     },

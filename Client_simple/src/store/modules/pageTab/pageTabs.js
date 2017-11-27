@@ -14,11 +14,6 @@ export default {
             title: 'Page_1',
             src: 'root-home-Page_1',
             name: 'root-home-Page_1'
-        },
-        {
-            title: 'Page_2',
-            src: 'root-home-Page_2',
-            name: 'root-home-Page_2'
         }]
     },
 }

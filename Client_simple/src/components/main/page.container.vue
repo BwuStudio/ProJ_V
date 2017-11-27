@@ -1,7 +1,7 @@
 <template>
 	<div class="page_container">
 		<el-tabs class="page-tabs md-h6" v-model="activePage" type="card" editable @edit="handleTabsEdit">
-			<el-tab-pane style="height:100%" :key="item.name" v-for="(item, index) in openedPages" :label="item.title" :name="item.name">
+			<el-tab-pane style="height:100%;overflow:auto" :key="item.name" v-for="(item, index) in openedPages" :label="item.title" :name="item.name">
 				<router-view :name='item.src'></router-view>
 			</el-tab-pane>
 		</el-tabs>

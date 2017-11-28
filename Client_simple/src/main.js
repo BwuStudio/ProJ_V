@@ -3,7 +3,7 @@
 // (runtime-only or standalone) has been set in webpack.base.conf with an alias.
 import Vue from 'vue'
 import App from './App'
-import router from './router'
+import router from './router_1/index'
 import store from './store/store'
 import Element from 'element-ui'
 import Globel_Comp from '@/components/common/globel/globel'
@@ -18,10 +18,11 @@ Vue.use(Element)
 
 Vue.use(Globel_Comp)
 
+Vue.use(router)
+
 /* eslint-disable no-new */
 new Vue({
   el: '#app',
-  router,
   store,
   template: '<App/>',
   components: { App }

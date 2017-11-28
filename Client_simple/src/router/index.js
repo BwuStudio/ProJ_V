@@ -4,19 +4,15 @@ import Router from 'vue-router'
 import RouterName from './RouterName'
 import RouterLabel from './RouterLabel'
 
-Vue.use(Router)
 
-let name_component = {}
+export default {
+    install: function (Vue) {
+        RouterName.forEach(value => {
+            Vue.component(value.name, value.component)
+        })
+    }
+};
 
-RouterName.forEach(value => {
-    name_component[value.name] = value.component
-})
 
-export default new Router({
-    routes: [
-        {
-            path: '/',
-            components: name_component
-        }
-    ]
-})
+
+

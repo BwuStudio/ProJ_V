@@ -7,7 +7,7 @@
 		<bwu-pageContainer style="z-index:2"></bwu-pageContainer>
 
 		<transition name="fade">
-			<bwu-login v-if='showLogin' @login='$login'></bwu-login>
+			<bwu-login v-show='showLogin' @login='$login'></bwu-login>
 		</transition>
 
 		<transition name="fade">
@@ -86,7 +86,8 @@
 
 	function $login() {
 		const _this = this
-		_this.$data.showLogin = false
+		console.log(this.showLogin)
+		_this.showLogin = false
 	}
 
 	function $toTop() {
@@ -94,8 +95,6 @@
 	}
 
 	function $nodeClick(data) {
-		const _this = this
-		data.url ? changePage(_this, data.url) : ''
 	}
 
 	function $unload() {
@@ -103,9 +102,6 @@
 	}
 
 
-	function changePage(_this, url) {
-		_this.$router.push(url)
-	}
 
 	function changeMod() {
 

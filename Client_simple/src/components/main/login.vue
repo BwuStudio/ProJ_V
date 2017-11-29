@@ -3,7 +3,7 @@
 		<form class="panel">
 			<input type='text' placeholder="用户名"></input>
 			<input type='password' placeholder="密码"></input>
-			<button v-on:click="checkValue" type="primary" class="btn">登录</button>
+			<button v-on:click="checkValue" type="button" class="btn">登录</button>
 
 		</form>
 	</div>

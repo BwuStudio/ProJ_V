@@ -8,7 +8,7 @@ module.exports = {
         publicPath: '/dist/',
         filename: 'build.js',
         //异步加载的模块是要以文件形式加载，生成的文件名是以chunkFilename配置的
-        chunkFilename: 'chunk[id].js?[chunkhash]',
+        chunkFilename: 'chunk[id].js',
     },
     module: {
         rules: [
@@ -71,7 +71,7 @@ module.exports = {
     performance: {
         hints: false
     },
-    devtool: '#eval-source-map'
+    devtool: '#cheap-module-eval-source-map'
 }
 
 if (process.env.NODE_ENV === 'production') {

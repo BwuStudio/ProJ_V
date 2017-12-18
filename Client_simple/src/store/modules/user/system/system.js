@@ -5,7 +5,7 @@ export default {
     mutations,
     state: {
         data: {
-            focus:'1',
+            active:'1',
             modules:[
                 {
                     name: '数据管理',

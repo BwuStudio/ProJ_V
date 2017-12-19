@@ -1,7 +1,7 @@
 <template>
 	<div class="header">
 		<div class='module-container'>
-			<div :class="item.nid==active?'module-btn active':'module-btn'" v-for='(item,index) in module'>
+			<div :class="item.nid==active?'module-btn active':'module-btn'" v-for='(item,index) in list' @click="$nodeCick(item.nid)">
 				<div :class="'module-icon iconfont '+item.icon"></div>
 				<div class="module-text">{{item.name}}</div>
 			</div>
@@ -11,24 +11,21 @@
 
 <script>
 export default {
-	name: 'bwu-header',
+    name: 'bwu-header',
+    props: ['list','active'],
 	mounted() {
 		console.log(this.$store.state)
 	},
 	data() {
 		return {
-			msg: 'Welcome to Your Vue.js App',
-			module: [{
-				name: '门户首页', icon: 'icons-home', nid: '1'
-			}, {
-				name: '资产平台', icon: 'icons-attachmoney', nid: '2'
-			}, {
-				name: '数据管理', icon: 'icons-desktopwindows', nid: '3'
-			}],
-			active: '3',
-			data: this.$store.state.User.System
+
 		}
-	}
+    },
+    methods:{
+        $nodeCick(nid){
+            this.$emit('nodeClick',nid)
+        }
+    }
 }
 
 </script>

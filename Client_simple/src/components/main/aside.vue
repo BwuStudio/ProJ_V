@@ -14,7 +14,7 @@
 				data: [],
 				defaultProps: {
 					children: 'children',
-					label: 'label'
+					label: 'title'
 				}
 			};
 		},

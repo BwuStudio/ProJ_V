@@ -54,7 +54,6 @@ export default {
 		}
 	},
 	mounted() {
-		console.log(this.$store.state)
 	},
 	methods: {
 		handleTabsEdit(targetName, action) {
@@ -86,6 +85,7 @@ export default {
 			}
 		},
 		handleNodeClick(data) {
+			console.log(data.src)
 			if (data.src) {
 				this.$store.commit(PageTabs.mutations.ADD_PAGE, {
 					title: data.label,

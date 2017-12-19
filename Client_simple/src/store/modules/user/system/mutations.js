@@ -1,8 +1,10 @@
 import Type from './mutation.type'
 
-const { INIT } = Type
+const {INIT_MOD, CHANGE_MOD} = Type
 
 export default {
-    [INIT](state) {
+    [INIT_MOD](state) {},
+    [CHANGE_MOD](state, nid) {
+        state.active = nid ? nid : state.modules[0].nid
     }
 }

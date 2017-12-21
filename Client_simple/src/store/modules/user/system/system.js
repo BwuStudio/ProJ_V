@@ -74,12 +74,14 @@ export default {
             {
                 name: '资产管理',
                 nid: '2',
-                icon: 'icons-attachmoney'
+                icon: 'icons-attachmoney',
+                pages: []
             },
             {
                 name: '门户首页',
                 nid: '3',
-                icon: 'icons-home'
+                icon: 'icons-home',
+                pages: []
             }
         ]
     },

@@ -4,7 +4,7 @@
 
 		<bwu-header :list='systems' :active ='activeNid'   @nodeClick='$headerClick'></bwu-header>
 
-		<bwu-pageContainer style="z-index:2"></bwu-pageContainer>
+		<bwu-pageContainer style="z-index:2;overflow:hidden"></bwu-pageContainer>
 
 		<transition name="fade">
 			<bwu-login v-if='showLogin' @login='$login'></bwu-login>
@@ -129,7 +129,7 @@ function $asideClick(data) {
 }
 
 function $headerClick(nid) {
-	this.$store.commit(PageTabsType.mutations.CHANGE_MOD, nid)
+	this.$store.commit(SystemType.mutations.CHANGE_MOD, nid)
 }
 
 

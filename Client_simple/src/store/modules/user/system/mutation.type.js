@@ -3,6 +3,8 @@ import User from '../mutation.type'
 
 export default Typer({
     mod:'System',
-    parent:[User.mod],
-    INIT : 'INIT'
+    parents:[User.mod],
+    
+    INIT_MOD : 'INIT_MOD',
+    CHANGE_MOD : 'CHANGE_MOD',
 })

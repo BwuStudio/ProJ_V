@@ -1,16 +1,29 @@
 const 
     path = require('path'),
-    webpack = require('webpack')
+    CommonsChunkPlugin = require('webpack/lib/optimize/CommonsChunkPlugin'),
+    HappyPack = require('happypack'),
+    assetsPath = (_path) => {
+        return path.resolve('./static', _path)
+    }
 
+    
 module.exports = {
-    entry: './src/main.js',
-    output: {
+    entry:path.resolve(__dirname, '../src/main'),
+    output:{
         path: path.resolve(__dirname, './dist'),
         publicPath: '/dist/',
         filename: 'build.js',
         //异步加载的模块是要以文件形式加载，生成的文件名是以chunkFilename配置的
-        //chunkFilename: 'chunk/chunk[id].js?[chunkhash:8]',
-        chunkFilename:'chunk/[id]_[chunkhash:8].chunk.js'
+        chunkFilename: 'chunk[id].js?[chunkhash]',
+    },
+    resolve: {
+        modules:[path.resolve(__dirname,'node_modules')],
+        mainFields:['jsnext:main','main'],
+        alias: { // 路径重命名
+            'vue$': 'vue/dist/vue.esm.js',
+            '@': path.resolve(__dirname, './src')
+        },
+        extensions: ['.js', '.json', '.vue', '.scss', '.css'] // 省略后缀名
     },
     module: {
         rules: [
@@ -33,17 +46,28 @@ module.exports = {
                 loader: 'style-loader!css-loader'
             },
             {
-                test: /\.(png|jpg|gif)$/,
-                loader: 'url-loader?limit=64',
+                test: /\.(png|jpe?g|gif|svg)(\?.*)?$/,
+                loader: 'url-loader',
                 options: {
-                    name: '[name].[ext]?[hash]'
+                    limit: 10000,
+                    name: assetsPath('img/[name].[hash:7].[ext]')
+                }
+            },
+            {
+                test: /\.(mp4|webm|ogg|mp3|wav|flac|aac)(\?.*)?$/,
+                loader: 'url-loader',
+                options: {
+                    limit: 10000,
+                    name: assetsPath('media/[name].[hash:7].[ext]')
                 }
             },
             {
                 test: /\.(woff|svg|eot|ttf)$/,
                 loader: 'url-loader?limit=64',
                 options: {
-                    name: '[name].[ext]?[hash]'
+                    //name: '[name].[ext]?[hash]'
+                    limit: 10000,
+                    name: assetsPath('fonts/[name].[hash:7].[ext]')
                 }
             },
             {
@@ -58,41 +82,13 @@ module.exports = {
             }
         ]
     },
-    resolve: {
-        alias: {
-            'vue$': 'vue/dist/vue.esm.js',
-            '@': path.resolve(__dirname, './src')
-        },
-        extensions: ['.js', '.json', '.vue', '.scss', '.css']
-    },
+    plugins: [
+        new HtmlWebpackPlugin()
+    ],
     devServer: {
+        hot:true,
         historyApiFallback: true,
         noInfo: true,
         overlay: true
     },
-    performance: {
-        hints: false
-    },
-    devtool: '#eval-source-map'
-}
-
-if (process.env.NODE_ENV === 'production') {
-    module.exports.devtool = '#source-map'
-    // http://vue-loader.vuejs.org/en/workflow/production.html
-    module.exports.plugins = (module.exports.plugins || []).concat([
-        new webpack.DefinePlugin({
-            'process.env': {
-                NODE_ENV: '"production"'
-            }
-        }),
-        new webpack.optimize.UglifyJsPlugin({
-            sourceMap: true,
-            compress: {
-                warnings: false
-            }
-        }),
-        new webpack.LoaderOptionsPlugin({
-            minimize: true
-        })
-    ])
 }

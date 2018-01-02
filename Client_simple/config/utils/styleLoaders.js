@@ -14,7 +14,7 @@ const generateLoaders = (
         loader:'css-loader',
         options: Object.assign(
             {},  
-            { minimize: true, sourceMap: true },
+            //{ minimize: true, sourceMap: true },
             cssOption
         )
     }]
@@ -25,7 +25,7 @@ const generateLoaders = (
             loader: 'postcss-loader',
             options: Object.assign(
                 {},
-                { sourceMap:true }, 
+               // { sourceMap:true }, 
                 procssOption
             )
         })
@@ -36,7 +36,7 @@ const generateLoaders = (
             loader: loader + '-loader',
             options: Object.assign(
                 {}, 
-                { sourceMap: true}, 
+              //  { sourceMap: true}, 
                 loaderOption
             )
         })
@@ -46,18 +46,18 @@ const generateLoaders = (
     if (extract) {
         return extractTextPlugin.extract({
           use: loaders,
-          fallback: 'vue-style-loader'
+          fallback: 'style-loader'
         })
       } else {
-        return ['vue-style-loader'].concat(loaders)
+        return ['style-loader'].concat(loaders)
       }
 }
 
 exports.cssLoaders = {
     css: {},
     less:{},
-    sass: { indentedSyntax: true },
-    scss: {}
+    // sass: { indentedSyntax: true },
+    // scss: {}
 }
 
 module.exports = (

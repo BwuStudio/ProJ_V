@@ -1,0 +1,20 @@
+{
+  "name": "proj_v",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "dev": "node ./Client_simple/build/dev.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/BwuStudio/ProJ_V.git"
+  },
+  "author": "Bwuni",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/BwuStudio/ProJ_V/issues"
+  },
+  "homepage": "https://github.com/BwuStudio/ProJ_V#readme"
+}

@@ -1,4 +1,4 @@
-function Ajax() {
+function ajax() {
     //设定 ajax 参数
     var ajaxData = {
         type: arguments[0].type || 'GET',
@@ -62,5 +62,25 @@ function convertData(data) {
     }
 }
 
+/**
+ * 
+ */
+ajax.get = (url ='' , data , option )=>(ajax(
+    Object.assign({
+        url,
+        data,
+        type:'GET'
+    },option)
+))
 
-export default Ajax
+
+ajax.post = (url ='' , data , option )=>(ajax(
+    Object.assign({
+        url,
+        data,
+        type:'POST'
+    },option)
+))
+
+
+export default ajax

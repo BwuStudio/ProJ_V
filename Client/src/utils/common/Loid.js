@@ -1,4 +1,4 @@
-import Increment from './Increment'
+import Increment from './increment'
 
 let incre = Increment(0, Math.pow(2, 16))
 
@@ -7,7 +7,7 @@ let incre = Increment(0, Math.pow(2, 16))
  * @param {string} name 
  * @returns {string} 
  */
-export default function (name) {
+export default function loid(name) {
     let time = new Date().getTime()
     let count = incre.getValue()
     let random = Math.floor(Math.random() * Math.pow(2, 16))

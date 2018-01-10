@@ -1,7 +1,7 @@
-import Type from './mutation.type'
-import Loid from '@/utils/common/Loid'
+import type from './mutation.type'
+import loid from '@/utils/common/loid'
 
-const { SET_PAGE, ADD_PAGE, REMOVE_PAGE, INIT_TABS } = Type
+const { SET_PAGE, ADD_PAGE, REMOVE_PAGE, INIT_TABS } = type
 
 export default {
     [SET_PAGE](state, name) {

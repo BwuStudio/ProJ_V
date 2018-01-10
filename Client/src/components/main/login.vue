@@ -3,7 +3,7 @@
 		<form class="panel">
 			<input type='text' placeholder="用户名"></input>
 			<input type='password' placeholder="密码"></input>
-			<button v-on:click="checkValue" type="primary" class="btn">登录</button>
+			<button @click="checkValue" type="button" class="btn">登录</button>
 
 		</form>
 	</div>
@@ -11,7 +11,7 @@
 
 <script>
 	import Colorful from '../../utils/view/ColorfulBand.js'
-	import Ajax from '../../utils/common/Ajax.js'
+	import ajax from '../../utils/common/ajax.js'
 
 	export default {
 		name: 'bwu-login',
@@ -49,7 +49,7 @@
 	function checkValue(uname, ucode) {
 		const _this = this
 
-		Ajax({ type: "GET", url: "http://127.0.0.1:8081/api/user" })
+		ajax.get("http://127.0.0.1:8081/api/user")
 			.then(
 			(success) => {
 				_this.$emit('login')
@@ -63,7 +63,7 @@
 
 	}
 
-	function erro() {
+	function err() {
 	}
 
 </script>

@@ -12,7 +12,7 @@ export default {
         }
     },
     [ADD_PAGE](state, { title, src, props, index }) {
-        const name = Loid('page')
+        const name = loid('page')
 
         if (index) {
             state.pages.splice(index, 0, {

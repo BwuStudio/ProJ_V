@@ -6,7 +6,7 @@ const
 
 
 const 
-    service_path = path.resolve(__dirname, '../../Service'),
+    service_path = path.resolve(__dirname, '../service'),
     service = spawn(
         'cmd.exe',['/s', '/c',`"cd ${service_path} && npm run dev"`], { cwd: null, env: null, windowsVerbatimArguments: true } 
     )
